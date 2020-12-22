@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using JGR_WGU_Capstone.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
-using JGR_WGU_Capstone.Data;
-using JGR_WGU_Capstone.Models;
+using System.Threading.Tasks;
 
 namespace JGR_WGU_Capstone.Pages.Computers
 {
