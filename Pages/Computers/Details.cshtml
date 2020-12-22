@@ -5,39 +5,71 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
-
 <div>
-    <h4>Computer</h4>
+    <p>
+        <span class="font-weight-bold" style="float: left; font-size: x-large;">Computer Details</span>
+        <a style="float: right;" class="btn btn-primary btn-sm" asp-page="./Index">Back to List</a>
+        <a style="float: right; margin-right: 5px;" class="btn btn-sm btn-danger" asp-page="./Delete" asp-route-id="@Model.Computer.ComputerID">Delete</a>
+        <a style="float: right; margin-right: 5px;" class="btn btn-success btn-sm" asp-page="./Edit" asp-route-id="@Model.Computer.ComputerID">Edit</a>
+    </p>
+    <br />
+
     <hr />
     <dl class="row">
-        <dt class="col-sm-2">
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Computer.SerialNumber)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Computer.SerialNumber)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Computer.Manufacturer)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Computer.Manufacturer)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Computer.Model)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Computer.Model)
         </dd>
-        <dt class="col-sm-2">
+        <dt class="col-sm-3">
             @Html.DisplayNameFor(model => model.Computer.PurchaseDate)
         </dt>
-        <dd class="col-sm-10">
+        <dd class="col-sm-9">
             @Html.DisplayFor(model => model.Computer.PurchaseDate)
         </dd>
     </dl>
-</div>
-<div>
-    <a asp-page="./Edit" asp-route-id="@Model.Computer.ComputerID">Edit</a> |
-    <a asp-page="./Index">Back to List</a>
+    <p>
+        <span class="font-weight-bold" style="float: left; font-size: medium;">Maintenanaces</span>
+        <a class="btn btn-success btn-sm" style="float: right;" asp-page="/Maintenances/Create" asp-route-compid="@Model.Computer.ComputerID">Create Maintenance</a>
+        <br />
+    </p>
+    <table class="table">
+        <thead class="thead-light">
+            <tr>
+                <th>Notes</th>
+                <th>Date</th>
+                <th style="width: 150px;">Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Computer.Maintenances)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Notes)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MaintenanceDate)
+                    </td>
+                    <td>
+                        <a class="btn btn-success btn-sm" asp-page="/Maintenances/Edit" asp-route-id="@item.MaintenanceID">Edit</a>
+                        <a class="btn btn-danger btn-sm" asp-page="/Maintenances/Delete" asp-route-id="@item.MaintenanceID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
 </div>

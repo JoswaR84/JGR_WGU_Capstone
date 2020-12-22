@@ -28,7 +28,10 @@ namespace JGR_WGU_Capstone.Pages.Computers
                 return NotFound();
             }
 
-            Computer = await _context.Computer.FirstOrDefaultAsync(m => m.ComputerID == id);
+            Computer = await _context.Computer
+                .Include(s => s.Maintenances)
+                .AsNoTracking()
+                .FirstOrDefaultAsync(m => m.ComputerID == id);
 
             if (Computer == null)
             {

@@ -5,50 +5,53 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
-
 <p>
-    <a asp-page="Create">Create New</a>
+    <span class="font-weight-bold" style="float: left; font-size: x-large;">Computer List</span>
+    <a class="btn btn-sm btn-success" style="float: right;" asp-page="Create">Create New</a>
 </p>
+<br />
+<br />
+
 <table class="table">
-    <thead>
+    <thead class="thead-light">
         <tr>
-            <th>
+            <th style="width: 20%">
                 @Html.DisplayNameFor(model => model.Computer[0].SerialNumber)
             </th>
-            <th>
+            <th style="width: 20%">
                 @Html.DisplayNameFor(model => model.Computer[0].Manufacturer)
             </th>
-            <th>
+            <th style="width: 20%">
                 @Html.DisplayNameFor(model => model.Computer[0].Model)
             </th>
-            <th>
+            <th style="width: 20%">
                 @Html.DisplayNameFor(model => model.Computer[0].PurchaseDate)
             </th>
-            <th></th>
+            <th style="min-width: 180px;"></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Computer) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.SerialNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Manufacturer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Model)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PurchaseDate)
-            </td>
-            <td>
-                <a asp-page="./Edit" asp-route-id="@item.ComputerID">Edit</a> |
-                <a asp-page="./Details" asp-route-id="@item.ComputerID">Details</a> |
-                <a asp-page="./Delete" asp-route-id="@item.ComputerID">Delete</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Computer)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SerialNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Manufacturer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PurchaseDate)
+                </td>
+                <td>
+                    <a class="btn btn-sm btn-primary" asp-page="./Details" asp-route-id="@item.ComputerID">Details</a>
+                    <a class="btn btn-sm btn-success" asp-page="./Edit" asp-route-id="@item.ComputerID">Edit</a>
+                    <a class="btn btn-sm btn-danger" asp-page="./Delete" asp-route-id="@item.ComputerID">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>

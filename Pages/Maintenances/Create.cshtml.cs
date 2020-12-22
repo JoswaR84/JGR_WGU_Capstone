@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Diagnostics;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -19,16 +20,19 @@ namespace JGR_WGU_Capstone.Pages.Maintenances
             _context = context;
         }
 
-        public IActionResult OnGet()
+        [ViewData]
+        public int PassedComputerID { get; set; }
+
+        public IActionResult OnGet(int compid)
         {
-        ViewData["ComputerID"] = new SelectList(_context.Computer, "ComputerID", "Manufacturer");
+            PassedComputerID = compid;
+            Debug.Write(PassedComputerID);
             return Page();
         }
 
         [BindProperty]
         public Maintenance Maintenance { get; set; }
 
-        // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
             if (!ModelState.IsValid)
@@ -39,7 +43,8 @@ namespace JGR_WGU_Capstone.Pages.Maintenances
             _context.Maintenance.Add(Maintenance);
             await _context.SaveChangesAsync();
 
-            return RedirectToPage("./Index");
+            return RedirectToPage("/Computers/Index");
         }
     }
 }
+
