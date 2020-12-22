@@ -1,0 +1,50 @@
+﻿@page
+@model JGR_WGU_Capstone.Pages.Computers.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Computer</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Computer.ComputerID" />
+            <div class="form-group">
+                <label asp-for="Computer.SerialNumber" class="control-label"></label>
+                <input asp-for="Computer.SerialNumber" class="form-control" />
+                <span asp-validation-for="Computer.SerialNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Computer.Manufacturer" class="control-label"></label>
+                <input asp-for="Computer.Manufacturer" class="form-control" />
+                <span asp-validation-for="Computer.Manufacturer" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Computer.Model" class="control-label"></label>
+                <input asp-for="Computer.Model" class="form-control" />
+                <span asp-validation-for="Computer.Model" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Computer.PurchaseDate" class="control-label"></label>
+                <input asp-for="Computer.PurchaseDate" class="form-control" />
+                <span asp-validation-for="Computer.PurchaseDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

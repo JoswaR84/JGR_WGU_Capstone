@@ -1,0 +1,45 @@
+﻿@page
+@model JGR_WGU_Capstone.Pages.Maintenances.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>Maintenance</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Maintenance.MaintenanceID" />
+            <div class="form-group">
+                <label asp-for="Maintenance.Notes" class="control-label"></label>
+                <input asp-for="Maintenance.Notes" class="form-control" />
+                <span asp-validation-for="Maintenance.Notes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Maintenance.MaintenanceDate" class="control-label"></label>
+                <input asp-for="Maintenance.MaintenanceDate" class="form-control" />
+                <span asp-validation-for="Maintenance.MaintenanceDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Maintenance.ComputerID" class="control-label"></label>
+                <select asp-for="Maintenance.ComputerID" class="form-control" asp-items="ViewBag.ComputerID"></select>
+                <span asp-validation-for="Maintenance.ComputerID" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
