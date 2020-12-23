@@ -1,7 +1,6 @@
 ﻿using JGR_WGU_Capstone.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using System.Diagnostics;
 using System.Threading.Tasks;
 
 namespace JGR_WGU_Capstone.Pages.Maintenances
@@ -20,8 +19,7 @@ namespace JGR_WGU_Capstone.Pages.Maintenances
 
         public IActionResult OnGet(int compid)
         {
-            PassedComputerID = compid;
-            Debug.Write(PassedComputerID);
+            PassedComputerID = compid;            
             return Page();
         }
 

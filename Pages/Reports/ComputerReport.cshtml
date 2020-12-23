@@ -1,0 +1,49 @@
+﻿@page
+@model JGR_WGU_Capstone.Pages.Reports.ComputerReportModel
+
+@{
+    ViewData["Title"] = "ComputerReport";
+    Layout = "~/Pages/Shared/_Layout.cshtml";
+}
+
+<p>
+    <span class="font-weight-bold" style="float: left; font-size: x-large;">Computers Report</span>
+    <span style="float: right;">Report Date: @Model.CurrentDate</span>
+</p>
+<br /><br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Computer[0].SerialNumber)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Computer[0].Manufacturer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Computer[0].Model)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Computer[0].PurchaseDate)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Computer) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SerialNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Manufacturer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Model)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchaseDate)
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
