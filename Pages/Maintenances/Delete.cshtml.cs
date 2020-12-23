@@ -50,7 +50,8 @@ namespace JGR_WGU_Capstone.Pages.Maintenances
                 await _context.SaveChangesAsync();
             }
 
-            return RedirectToPage("./Index");
+            var URL = "/Computers/Details?id=" + Maintenance.ComputerID;
+            return Redirect(URL);
         }
     }
 }

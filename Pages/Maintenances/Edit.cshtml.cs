@@ -65,7 +65,8 @@ namespace JGR_WGU_Capstone.Pages.Maintenances
                 }
             }
 
-            return RedirectToPage("./Index");
+            var URL = "/Computers/Details?id=" + Maintenance.ComputerID;
+            return Redirect(URL);
         }
 
         private bool MaintenanceExists(int id)
