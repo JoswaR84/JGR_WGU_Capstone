@@ -1,4 +1,8 @@
 ﻿@page
+
+@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
 @model IndexModel
 @{
     ViewData["Title"] = "Home page";
@@ -9,7 +13,17 @@
     <p>
         This website is a simple Computer Inventory and Maintenance Tracker created by Joshua Ramczyk.
     </p>
-    <p>
-        If you are an authorized user, please login. 
-    </p>
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <p>
+            Thank you for logging in, please enjoy!
+        </p>
+    }
+    else
+    {
+        <p>
+            If you are an authorized user, please login.
+        </p>
+    }
+
 </div>
