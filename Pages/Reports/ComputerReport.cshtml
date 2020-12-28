@@ -6,11 +6,30 @@
     Layout = "~/Pages/Shared/_Layout.cshtml";
 }
 
-<p>
+
+<div class="container-fluid">
+    <form class="form-inline" style="float: right;">
+        <div class="form-row">
+            <label for="make" class="m-1">Model</label>
+            <select id="make" asp-for="CompMake" asp-items="Model.Makes" class="form-control m-1">
+                <option value="">All</option>
+            </select>
+            <label for="model" class="m-1">Model</label>
+            <select id="model" asp-for="CompModel" asp-items="Model.Models" class="form-control m-1">
+                <option value="">All</option>
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary m-1">Filter</button>
+    </form>
+</div>
+<br /><br />
+
+<div>
     <span class="font-weight-bold" style="float: left; font-size: x-large;">Computers Report</span>
     <span style="float: right;">Report Date: @Model.CurrentDate</span>
-</p>
+</div>
 <br /><br />
+
 <table class="table">
     <thead>
         <tr>
@@ -29,21 +48,22 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Computer) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.SerialNumber)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Manufacturer)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Model)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.PurchaseDate)
-            </td>
-        </tr>
-}
+        @foreach (var item in Model.Computer)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SerialNumber)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Manufacturer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Model)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PurchaseDate)
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
