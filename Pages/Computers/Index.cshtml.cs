@@ -21,7 +21,7 @@ namespace JGR_WGU_Capstone.Pages.Computers
 
         public IList<Computer> Computer { get;set; }
         [BindProperty(SupportsGet = true)]
-        public string SearchString { get; set; }        
+        public string SearchString { get; set; }
 
         public async Task OnGetAsync()
         {
