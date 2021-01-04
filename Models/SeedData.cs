@@ -26,7 +26,7 @@ namespace JGR_WGU_Capstone.Models
                         SerialNumber = "123",
                         Manufacturer = "Dell",
                         Model = "Latitude",
-                        PurchaseDate = DateTime.Parse("01/27/2018")
+                        PurchaseDate = DateTime.Parse("01/27/2014")
 
                     },
                     new Computer
@@ -34,7 +34,7 @@ namespace JGR_WGU_Capstone.Models
                         SerialNumber = "987",
                         Manufacturer = "Dell",
                         Model = "Latitude",
-                        PurchaseDate = DateTime.Parse("03/04/2019")
+                        PurchaseDate = DateTime.Parse("03/04/2015")
 
                     },
                     new Computer
@@ -42,7 +42,7 @@ namespace JGR_WGU_Capstone.Models
                         SerialNumber = "654",
                         Manufacturer = "Dell",
                         Model = "Optiplex",
-                        PurchaseDate = DateTime.Parse("01/05/2020")
+                        PurchaseDate = DateTime.Parse("01/05/2014")
 
                     },
                     new Computer
@@ -50,14 +50,14 @@ namespace JGR_WGU_Capstone.Models
                         SerialNumber = "852",
                         Manufacturer = "HP",
                         Model = "Spectre",
-                        PurchaseDate = DateTime.Parse("04/20/2019")
+                        PurchaseDate = DateTime.Parse("04/20/2016")
                     },
                     new Computer
                     {
                         SerialNumber = "147",
                         Manufacturer = "HP",
                         Model = "Omen",
-                        PurchaseDate = DateTime.Parse("05/30/2018")
+                        PurchaseDate = DateTime.Parse("05/30/2015")
 
                     },
                     new Computer
