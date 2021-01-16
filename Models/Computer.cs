@@ -6,6 +6,16 @@ namespace JGR_WGU_Capstone.Models
 {
     public class Computer
     {
+        public Computer(){}
+
+        public Computer(string sn, string man, string mod, DateTime purDate) 
+        {
+            SerialNumber = sn;
+            Manufacturer = man;
+            Model = mod;
+            PurchaseDate = purDate;
+        }
+
         public int ComputerID { get; set; }
         [Required]
         [Display(Name = "Serial Number")]
